@@ -15,8 +15,9 @@ public class ResultActivity extends AppCompatActivity {
 
         mScore=findViewById(R.id.score);
         Intent intent = getIntent();
-        String Score=intent.getExtras().getString("counter");
+        String Score=intent.getExtras().getString("score");
         mScore.setText(Score);
+        mScore.setText("Your score is : " + Score);
 
     }
 

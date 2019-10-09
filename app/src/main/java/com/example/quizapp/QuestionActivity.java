@@ -14,7 +14,6 @@ public class QuestionActivity extends AppCompatActivity {
     private Button mSubmit ;
     private RadioGroup Question1,Question2,Question3,Question4,Question5 ;
     private RadioButton html, assembler,swift,csharp,scala;
-    private TextView textView;
 
     public int counter=0;
     @Override
@@ -34,14 +33,15 @@ public class QuestionActivity extends AppCompatActivity {
         mSubmit= findViewById(R.id.submit_button);
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+
+        public void onClick(View v) {
                 if((Question1.getCheckedRadioButtonId())==(html.getId())) counter ++;
                 if((Question2.getCheckedRadioButtonId())==(assembler.getId())) counter ++;
                 if((Question3.getCheckedRadioButtonId())==(swift.getId())) counter ++;
                 if((Question4.getCheckedRadioButtonId())==(csharp.getId())) counter ++;
                 if((Question5.getCheckedRadioButtonId())==(scala.getId())) counter ++;
                 Intent intent=new Intent(QuestionActivity.this,ResultActivity.class);
-                intent.putExtra("score",counter);
+                intent.putExtra("score",String.valueOf(counter));
                 startActivity(intent);
             }
         });
