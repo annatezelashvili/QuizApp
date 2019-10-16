@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/question_id"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".QuestionActivity"
     android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:visibility="visible">
 
     <TextView
         android:layout_width="wrap_content"
@@ -224,4 +226,17 @@
         android:layout_marginTop="10dp"
         android:text="Submit" />
 
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/resumed_question_id"
+    android:visibility="gone">
+    <TextView
+        android:id="@+id/resumed_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/resumed_name"
+        ></TextView>
+</LinearLayout>
 </LinearLayout>
