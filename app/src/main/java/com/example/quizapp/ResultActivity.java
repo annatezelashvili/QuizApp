@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
+    public static String editedScore = " ";
     private TextView mScore;
     private SharePreferenceManager mSharePreferenceManager;
     @Override
@@ -21,17 +22,11 @@ public class ResultActivity extends AppCompatActivity {
         mScore.setText(Score);
         mScore.setText("Your score is : " + Score);
         mSharePreferenceManager = new SharePreferenceManager(this);
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
+;
         saveResult();
     }
     private void saveResult(){
-        String editedScore=findViewById(R.id.score);
         String defResult = "Your Last Result : 2/5";
-        mSharePreferenceManager.write(editedScore ,defResult );
+        mSharePreferenceManager.write(editedScore,defResult );
     }
 }

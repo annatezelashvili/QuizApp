@@ -58,7 +58,7 @@ public class QuestionActivity extends AppCompatActivity {
         super.onResume();
         findViewById(R.id.question_id).setVisibility(View.GONE);
         findViewById(R.id.resumed_question_id).setVisibility(View.VISIBLE);
-       String showText = SharePreferenceManager.read(ResultActivity.editedScore);
+       String showText = mSharePreferenceManager.read(ResultActivity.editedScore);
         newText.setText(showText);
 
     }
