@@ -11,6 +11,9 @@ import android.widget.RadioGroup;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class QuestionActivity extends AppCompatActivity {
     public static final String LAST_SCORE="last_score";
@@ -49,6 +52,9 @@ public class QuestionActivity extends AppCompatActivity {
                 if((Question5.getCheckedRadioButtonId())==(scala.getId())) counter ++;
                 Intent intent=new Intent(QuestionActivity.this,ResultActivity.class);
                 intent.putExtra("score",String.valueOf(counter));
+                List Scores= new ArrayList();
+                Scores.add(counter);
+
                 startActivity(intent);
             }
         });
