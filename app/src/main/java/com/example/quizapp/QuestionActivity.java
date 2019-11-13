@@ -11,6 +11,10 @@ import android.widget.RadioGroup;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.example.quizapp.scoremodels.Score;
+import com.example.quizapp.scoremodels.ScoreManager;
+import com.example.quizapp.scoremodels.ScoreStorage;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +27,10 @@ public class QuestionActivity extends AppCompatActivity {
     private SharePreferenceManager mSharePreferenceManager;
     private TextView newText;
     public int counter=0;
+    public Score score;
+    public ScoreManager scoreList;
+    public ScoreStorage scoreStorage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +60,10 @@ public class QuestionActivity extends AppCompatActivity {
                 if((Question5.getCheckedRadioButtonId())==(scala.getId())) counter ++;
                 Intent intent=new Intent(QuestionActivity.this,ResultActivity.class);
                 intent.putExtra("score",String.valueOf(counter));
-                List Scores= new ArrayList();
-                Scores.add(counter);
-
                 startActivity(intent);
+                score.setmScore(counter);
+                scoreList.addScores(score);
+                scoreStorage.addScoresToSharedPreferences(score);
             }
         });
     }

@@ -27,8 +27,8 @@ public  class ResultActivity extends AppCompatActivity {
         mScore.setText(Score);
         mScore.setText("Your score is : " + Score);
         mSharePreferenceManager = new SharePreferenceManager(this);
-            mSharePreferenceManager.write(LAST_SCORE, Score);
-            mHistory=findViewById(R.id.history);
+        mSharePreferenceManager.write(LAST_SCORE, Score);
+        mHistory=findViewById(R.id.history);
         mHistory.setOnClickListener(new View.OnClickListener() {
             @Override
 

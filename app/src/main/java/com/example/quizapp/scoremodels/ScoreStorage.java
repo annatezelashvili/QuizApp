@@ -15,16 +15,16 @@ public class ScoreStorage  {
         this.mContext = mContext;
     }
 
-    public void addScores(Score score) {
+    public void addScoresToSharedPreferences(Score score) {
 
-        ScoreStorage  scoreStorage = read();
-        scoreStorage.getScores.add(score);
-        write(scoreStorage);
+        ScoreManager  scoreManager = read();
+        scoreManager.getScoresList().add(score);
+        write(scoreManager);
     }
 
 
 
-    public ScoreStorage  getScoresStorage() {
+    public ScoreManager  getScoresStorage() {
         return read();
     }
 
@@ -32,14 +32,14 @@ public class ScoreStorage  {
         return mContext.getSharedPreferences(SCORES_LIST_FILE, Context.MODE_PRIVATE);
     }
 
-    private void write(ScoreStorage  scores) {
+    private void write(ScoreManager  scores) {
         SharedPreferences.Editor editor = getSharedPreferences().edit();
         editor.putString(SCORES_LIST_KEY, new Gson().toJson(scores));
         editor.commit();
     }
 
-    private ScoreStorage  read() {
+    private ScoreManager read() {
         String jsonString = getSharedPreferences().getString(SCORES_LIST_KEY, null);
-        return new Gson().fromJson(jsonString, ScoreStorage.class);
+        return new Gson().fromJson(jsonString, ScoreManager.class);
     }
 }
